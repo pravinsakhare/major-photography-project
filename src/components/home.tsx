@@ -7,6 +7,7 @@ import PortfolioSection from "./sections/PortfolioSection";
 import FeaturesSection from "./sections/FeaturesSection";
 import TestimonialsSection from "./sections/TestimonialsSection";
 import CtaSection from "./sections/CtaSection";
+import Footer from "./layout/Footer";
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
         <TestimonialsSection />
         <CtaSection />
       </motion.main>
+      <Footer />
     </div>
   );
 };
