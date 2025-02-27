@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../navigation/Navbar";
-import PricingTable from "./PricingTable";
+import PricingSelection from "./PricingSelection";
 
 const PricingPage = () => {
   return (
@@ -22,7 +22,7 @@ const PricingPage = () => {
               needs
             </p>
           </motion.div>
-          <PricingTable />
+          <PricingSelection />
         </div>
       </div>
     </div>
