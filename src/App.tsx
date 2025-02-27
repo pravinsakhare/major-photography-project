@@ -12,6 +12,8 @@ import AboutPage from "./components/about/AboutPage";
 import ContactPage from "./components/contact/ContactPage";
 import BookingPage from "./components/booking/BookingPage";
 import PricingPage from "./components/pricing/PricingPage";
+import DynamicPricingPage from "./pages/DynamicPricingPage";
+import DynamicBookingPage from "./pages/DynamicBookingPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
@@ -46,7 +48,8 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/pricing" element={<DynamicPricingPage />} />
+            <Route path="/dynamic-pricing" element={<DynamicPricingPage />} />
 
             {/* Client Portal Routes */}
             <Route path="/portal/:accessId" element={<ClientPortalPage />} />
@@ -86,7 +89,7 @@ function App() {
               path="/book"
               element={
                 <ProtectedRoute>
-                  <BookingPage />
+                  <DynamicBookingPage />
                 </ProtectedRoute>
               }
             />
