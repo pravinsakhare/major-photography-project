@@ -30,12 +30,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/40 z-[2]" />
 
-      {/* Image Carousel */}
+      {/* Image Carousel with enhanced images */}
       <ImageCarousel
         images={[
-          "https://images.unsplash.com/photo-1542038784456-1ea8e935640e",
-          "https://images.unsplash.com/photo-1554080353-a576cf803bda",
-          "https://images.unsplash.com/photo-1505935428862-770b6f24f629",
+          "https://images.unsplash.com/photo-1542038784456-1ea8e935640e", // Wedding photography
+          "https://images.unsplash.com/photo-1554080353-a576cf803bda", // Nature photography
+          "https://images.unsplash.com/photo-1505935428862-770b6f24f629", // Studio photography
+          "https://images.unsplash.com/photo-1516035069371-29a1b244cc32", // Camera closeup
+          "https://images.unsplash.com/photo-1520390138845-fd2d229dd553", // Landscape photography
+          "https://images.unsplash.com/photo-1551316679-9c6ae9dec224", // Portrait photography
+          "https://images.unsplash.com/photo-1516724562728-afc824a36e84", // Event photography
         ]}
         interval={5000}
         overlay={true}

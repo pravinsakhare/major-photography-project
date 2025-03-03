@@ -1,11 +1,11 @@
 import React from "react";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
-import BookingsList from "@/components/dashboard/BookingsList";
+import DashboardOverview from "@/components/dashboard/DashboardOverview";
 
 const DashboardPage = () => {
   return (
-    <DashboardLayout title="My Bookings">
-      <BookingsList />
+    <DashboardLayout title="Dashboard">
+      <DashboardOverview />
     </DashboardLayout>
   );
 };

@@ -100,7 +100,7 @@ const PricingTable = () => {
               {pkg.name}
             </h3>
             <div className="text-3xl font-bold text-[#D4AF37] mb-4">
-              ${pkg.price}
+              ₹{pkg.price.toLocaleString("en-IN")}
             </div>
             <p className="text-white/70 mb-6">{pkg.description}</p>
             <ul className="space-y-3 mb-8">
@@ -142,7 +142,9 @@ const PricingTable = () => {
             >
               <div className="flex justify-between items-center">
                 <span className="text-white">{addOn.name}</span>
-                <span className="text-[#D4AF37]">${addOn.price}</span>
+                <span className="text-[#D4AF37]">
+                  ₹{addOn.price.toLocaleString("en-IN")}
+                </span>
               </div>
             </motion.div>
           ))}

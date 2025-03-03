@@ -1,7 +1,10 @@
 import { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { CalendarPlus } from "lucide-react";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 
 // Pages
@@ -31,6 +34,8 @@ import ClientFeedbackPage from "./pages/client/ClientFeedbackPage";
 import routes from "tempo-routes";
 
 function App() {
+  const navigate = useNavigate();
+
   return (
     <ThemeProvider>
       <AuthProvider>
@@ -133,6 +138,8 @@ function App() {
               <Route path="/tempobook/*" element={null} />
             </Routes>
           )}
+
+          {/* Floating Book Now Button removed as requested */}
         </Suspense>
       </AuthProvider>
     </ThemeProvider>

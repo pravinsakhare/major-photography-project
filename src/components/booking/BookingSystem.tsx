@@ -206,7 +206,7 @@ const BookingSystem = () => {
                     {pkg.name}
                   </h3>
                   <p className="text-[#D4AF37] text-xl font-semibold mb-2">
-                    ${pkg.price}
+                    ₹{pkg.price}
                   </p>
                   <p className="text-white/70 text-sm mb-4">
                     {pkg.description}
@@ -263,7 +263,7 @@ const BookingSystem = () => {
                     </Label>
                   </div>
                   <span className="text-[#D4AF37] font-semibold">
-                    ${service.price}
+                    ₹{service.price.toLocaleString("en-IN")}
                   </span>
                 </div>
               ))}
@@ -470,7 +470,7 @@ const BookingSystem = () => {
                     <div className="flex justify-between text-lg font-semibold">
                       <span className="text-white">Total:</span>
                       <span className="text-[#D4AF37]">
-                        ${calculateTotal()}
+                        ₹{calculateTotal().toLocaleString("en-IN")}
                       </span>
                     </div>
                   </div>

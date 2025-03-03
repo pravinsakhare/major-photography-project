@@ -25,64 +25,183 @@ interface PortfolioItem {
 }
 
 const portfolioItems: PortfolioItem[] = [
+  // Wedding Category
   {
     id: "1",
-    title: "Elegant Beach Wedding",
+    title: "Sunset Beach Wedding",
     category: "weddings",
     type: "image",
     thumbnail: "https://images.unsplash.com/photo-1606800052052-a08af7148866",
-    description: "Beautiful beachfront ceremony at sunset",
+    description: "Romantic couple during a sunset beach ceremony",
     date: "2024-03-15",
   },
   {
     id: "2",
-    title: "Summer Fashion Collection",
-    category: "fashion",
+    title: "Bride Preparation",
+    category: "weddings",
     type: "image",
-    thumbnail: "https://images.unsplash.com/photo-1469334031218-e382a71b716b",
-    description: "Summer 2024 fashion campaign shoot",
-    date: "2024-02-20",
+    thumbnail: "https://images.unsplash.com/photo-1546804784-896d0dca3805",
+    description: "Elegant bride getting ready for her special day",
+    date: "2024-02-28",
   },
   {
     id: "3",
-    title: "Corporate Brand Video",
+    title: "Luxury Wedding Reception",
+    category: "weddings",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1519741347686-c1e331c20a2d",
+    description: "Sophisticated wedding reception with exquisite decor",
+    date: "2024-01-20",
+  },
+
+  // Fashion Category
+  {
+    id: "4",
+    title: "Urban Fashion Editorial",
+    category: "fashion",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1469334031218-e382a71b716b",
+    description: "Stylish model posing in an urban setting",
+    date: "2024-02-20",
+  },
+  {
+    id: "5",
+    title: "Runway Collection",
+    category: "fashion",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1509631179647-0177331693ae",
+    description: "Vibrant fashion runway showcase",
+    date: "2024-03-05",
+  },
+  {
+    id: "6",
+    title: "Creative Editorial",
+    category: "fashion",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
+    description: "Artistic fashion editorial with unique styling",
+    date: "2024-02-10",
+  },
+
+  // Corporate Category
+  {
+    id: "7",
+    title: "Executive Meeting",
     category: "corporate",
-    type: "video",
+    type: "image",
     thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-    videoUrl: "https://example.com/video.mp4",
-    description: "Brand story and company culture showcase",
+    description: "Professional business meeting in modern boardroom",
     date: "2024-01-10",
   },
   {
-    id: "4",
-    title: "City Aerial Tour",
+    id: "8",
+    title: "Entrepreneur Portrait",
+    category: "corporate",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    description: "Entrepreneur working in a contemporary office space",
+    date: "2024-02-15",
+  },
+  {
+    id: "9",
+    title: "Team Collaboration",
+    category: "corporate",
+    type: "video",
+    thumbnail: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    videoUrl: "https://example.com/video.mp4",
+    description: "Dynamic team collaboration in a creative coworking space",
+    date: "2024-03-12",
+  },
+
+  // Events Category
+  {
+    id: "10",
+    title: "Music Festival",
+    category: "events",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea",
+    description: "Lively music concert with an energetic crowd",
+    date: "2024-03-10",
+  },
+  {
+    id: "11",
+    title: "Birthday Celebration",
+    category: "events",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d",
+    description: "Vibrant birthday celebration with elegant decorations",
+    date: "2024-01-25",
+  },
+  {
+    id: "12",
+    title: "Business Conference",
+    category: "events",
+    type: "video",
+    thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
+    videoUrl: "https://example.com/conference.mp4",
+    description: "Professional business conference with keynote speakers",
+    date: "2024-02-05",
+  },
+
+  // Drone Category
+  {
+    id: "13",
+    title: "City Skyline Aerial",
     category: "drone",
     type: "video",
     thumbnail: "https://images.unsplash.com/photo-1576036424372-d66049a81ce5",
     videoUrl: "https://example.com/drone.mp4",
-    description: "Stunning aerial footage of the city skyline",
+    description: "Breathtaking aerial view of a metropolitan skyline",
     date: "2024-03-01",
   },
   {
-    id: "5",
-    title: "Music Festival Highlights",
-    category: "events",
+    id: "14",
+    title: "Mountain Landscape",
+    category: "drone",
     type: "image",
-    thumbnail: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea",
-    description: "Annual summer music festival coverage",
-    date: "2024-03-10",
+    thumbnail: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+    description: "Scenic landscape with mountains and winding rivers",
+    date: "2024-02-18",
   },
   {
-    id: "6",
-    title: "Short Film - 'Echoes'",
+    id: "15",
+    title: "Beach Wedding Aerial",
+    category: "drone",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1566438480900-0609be27a4be",
+    description: "Top-down view of an elegant beach wedding setup",
+    date: "2024-03-20",
+  },
+
+  // Films Category
+  {
+    id: "16",
+    title: "Cinematic Drama Scene",
     category: "films",
     type: "video",
     thumbnail: "https://images.unsplash.com/photo-1485846234645-a62644f84728",
     videoUrl: "https://example.com/film.mp4",
-    description: "Award-winning short film production",
+    description: "Dramatic scene from an award-winning short film",
     date: "2024-02-15",
   },
-  // Add more items as needed
+  {
+    id: "17",
+    title: "Behind The Scenes",
+    category: "films",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1500210600188-c4e7a401d77e",
+    description: "Director and camera crew during a film production",
+    date: "2024-01-30",
+  },
+  {
+    id: "18",
+    title: "Vintage Film Portrait",
+    category: "films",
+    type: "image",
+    thumbnail: "https://images.unsplash.com/photo-1517940310602-26535839fe84",
+    description: "Artistic portrait with vintage film aesthetics",
+    date: "2024-03-08",
+  },
 ];
 
 const categories: { value: Category; label: string; icon: string }[] = [
@@ -97,7 +216,7 @@ const categories: { value: Category; label: string; icon: string }[] = [
 
 const PortfolioGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
-  const [visibleItems, setVisibleItems] = useState(6);
+  const [visibleItems, setVisibleItems] = useState(9);
 
   const filteredItems = portfolioItems.filter(
     (item) => selectedCategory === "all" || item.category === selectedCategory,

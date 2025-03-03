@@ -18,7 +18,7 @@ const services = [
       "Color Grading",
       "Multiple Camera Angles",
     ],
-    price: "Starting at $1,999",
+    price: "Starting at ₹1,49,999",
     duration: "1-3 days",
     testimonial:
       "The cinematography team captured our event perfectly! - Sarah J.",
@@ -37,7 +37,7 @@ const services = [
       "Online Gallery",
       "Custom Album Design",
     ],
-    price: "Starting at $2,499",
+    price: "Starting at ₹1,89,999",
     duration: "1 day",
     testimonial:
       "Our wedding photos exceeded our expectations! - Michael & Emma",
@@ -56,7 +56,7 @@ const services = [
       "Social Media Content",
       "Commercial Usage Rights",
     ],
-    price: "Starting at $1,499",
+    price: "Starting at ₹1,19,999",
     duration: "1-2 days",
     testimonial:
       "The product photos boosted our sales significantly! - Tech Innovations Inc.",
@@ -75,7 +75,7 @@ const services = [
       "Retouching & Editing",
       "Digital & Print Options",
     ],
-    price: "Starting at $499",
+    price: "Starting at ₹39,999",
     duration: "2-4 hours",
     testimonial:
       "My portfolio looks amazing after our shoot! - Jessica T., Model",
@@ -94,7 +94,7 @@ const services = [
       "Real Estate Overviews",
       "Event Aerial Coverage",
     ],
-    price: "Starting at $799",
+    price: "Starting at ₹59,999",
     duration: "2-3 hours",
     testimonial:
       "The aerial shots of our property were stunning! - Luxury Homes LLC",
@@ -112,7 +112,7 @@ const services = [
       "Special Effects",
       "Quick Turnaround",
     ],
-    price: "Starting at $299",
+    price: "Starting at ₹24,999",
     duration: "3-7 days",
     testimonial:
       "The editing transformed our raw footage into art! - Creative Agency",

@@ -31,7 +31,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
           {selectedServices.map((service) => (
             <div key={service.id} className="flex justify-between text-white">
               <span>{service.name}</span>
-              <span>${service.price}</span>
+              <span>₹{service.price.toLocaleString("en-IN")}</span>
             </div>
           ))}
         </div>
@@ -53,7 +53,9 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
         <div className="pt-4 border-t border-white/10">
           <div className="flex justify-between text-lg font-semibold">
             <span className="text-white">Total:</span>
-            <span className="text-[#D4AF37]">${totalPrice}</span>
+            <span className="text-[#D4AF37]">
+              ₹{totalPrice.toLocaleString("en-IN")}
+            </span>
           </div>
         </div>
       </div>

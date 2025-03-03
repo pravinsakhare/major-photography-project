@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, User, LogOut } from "lucide-react";
+import { Menu, User, LogOut, Sun, Moon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
   NavigationMenu,
@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/context/AuthContext";
+import { useTheme } from "@/context/ThemeContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,6 +45,7 @@ const Navbar = ({
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { user, isAuthenticated, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -176,6 +178,25 @@ const Navbar = ({
                     className="text-white hover:text-[#D4AF37] transition-colors duration-300"
                   >
                     Login
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={toggleTheme}
+                    className="text-white hover:text-[#D4AF37] transition-colors duration-300"
+                    aria-label={
+                      theme === "dark"
+                        ? "Switch to light mode"
+                        : "Switch to dark mode"
+                    }
+                  >
+                    {theme === "dark" ? (
+                      <Sun className="h-5 w-5" />
+                    ) : (
+                      <Moon className="h-5 w-5" />
+                    )}
                   </Button>
                 </motion.div>
                 <motion.div

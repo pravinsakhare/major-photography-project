@@ -29,7 +29,13 @@ const ServiceSelection: React.FC<ServiceSelectionProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="flex items-start space-x-4 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+          whileHover={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderColor: "rgba(212, 175, 55, 0.5)",
+            y: -5,
+            transition: { duration: 0.2 },
+          }}
+          className="flex items-start space-x-4 p-4 rounded-lg bg-white/5 border border-white/10 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
         >
           <Checkbox
             id={service.id}
@@ -47,7 +53,7 @@ const ServiceSelection: React.FC<ServiceSelectionProps> = ({
             <p className="text-white/70 text-sm mt-1">{service.description}</p>
             <div className="flex justify-between mt-2 text-sm">
               <span className="text-[#D4AF37]">{service.duration}</span>
-              <span className="text-white">${service.price}</span>
+              <span className="text-white">₹{service.price}</span>
             </div>
           </div>
         </motion.div>
