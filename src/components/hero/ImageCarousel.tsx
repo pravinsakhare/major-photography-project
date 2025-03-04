@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
@@ -10,22 +10,44 @@ interface ImageCarouselProps {
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images = [
-    "https://images.unsplash.com/photo-1542038784456-1ea8e935640e", // Wedding photography
-    "https://images.unsplash.com/photo-1554080353-a576cf803bda", // Nature photography
-    "https://images.unsplash.com/photo-1505935428862-770b6f24f629", // Studio photography
-    "https://images.unsplash.com/photo-1516035069371-29a1b244cc32", // Camera closeup
-    "https://images.unsplash.com/photo-1520390138845-fd2d229dd553", // Landscape photography
-    "https://images.unsplash.com/photo-1551316679-9c6ae9dec224", // Portrait photography
-    "https://images.unsplash.com/photo-1516724562728-afc824a36e84", // Event photography
+    "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1600&q=80", // Wedding photography
+    "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=1600&q=80", // Nature photography
+    "https://images.unsplash.com/photo-1505935428862-770b6f24f629?w=1600&q=80", // Studio photography
+    "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1600&q=80", // Camera closeup
+    "https://images.unsplash.com/photo-1520390138845-fd2d229dd553?w=1600&q=80", // Landscape photography
+    "https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=1600&q=80", // Portrait photography
+    "https://images.unsplash.com/photo-1516724562728-afc824a36e84?w=1600&q=80", // Event photography
   ],
   interval = 5000,
   overlay = true,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(
+    Array(images.length).fill(false),
+  );
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startTimer = () => {
+  // Preload images
+  useEffect(() => {
+    const preloadImages = () => {
+      images.forEach((src, index) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          setImagesLoaded((prev) => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        };
+      });
+    };
+
+    preloadImages();
+  }, [images]);
+
+  const startTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
 
     if (!isPaused) {
@@ -33,14 +55,14 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       }, interval);
     }
-  };
+  }, [isPaused, images.length, interval]);
 
   useEffect(() => {
     startTimer();
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPaused, images.length, interval]);
+  }, [startTimer]);
 
   const handlePrevious = () => {
     if (timerRef.current) clearInterval(timerRef.current);
@@ -76,6 +98,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
             alt={`Slide ${currentIndex + 1}`}
             className="w-full h-full object-cover"
             loading="lazy"
+            fetchPriority="high"
           />
           {overlay && <div className="absolute inset-0 bg-black/30" />}
         </motion.div>

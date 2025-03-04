@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useRoutes } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { motion } from "framer-motion";
@@ -23,6 +23,9 @@ import DashboardPage from "./pages/dashboard/DashboardPage";
 import BookingsPage from "./pages/dashboard/BookingsPage";
 import ProfilePage from "./pages/dashboard/ProfilePage";
 import SettingsPage from "./pages/dashboard/SettingsPage";
+import UserDashboardPage from "./pages/dashboard/UserDashboardPage";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import AdminLoginPage from "./pages/admin/AdminLoginPage";
 
 // Import client pages
 import ClientPortalPage from "./pages/client/ClientPortalPage";
@@ -35,6 +38,7 @@ import routes from "tempo-routes";
 
 function App() {
   const navigate = useNavigate();
+  const tempoRoutes = import.meta.env.VITE_TEMPO ? useRoutes(routes) : null;
 
   return (
     <ThemeProvider>
@@ -46,100 +50,107 @@ function App() {
             </div>
           }
         >
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/pricing" element={<DynamicPricingPage />} />
-            <Route path="/dynamic-pricing" element={<DynamicPricingPage />} />
-
-            {/* Client Portal Routes */}
-            <Route path="/portal/:accessId" element={<ClientPortalPage />} />
-            <Route
-              path="/portal/:accessId/gallery"
-              element={<ClientGalleryPage />}
-            />
-            <Route
-              path="/portal/:accessId/payments"
-              element={<ClientPaymentsPage />}
-            />
-            <Route
-              path="/portal/:accessId/feedback"
-              element={<ClientFeedbackPage />}
-            />
-
-            {/* Auth Routes */}
-            <Route
-              path="/login"
-              element={
-                <ProtectedRoute requireAuth={false}>
-                  <LoginPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <ProtectedRoute requireAuth={false}>
-                  <SignupPage />
-                </ProtectedRoute>
-              }
-            />
-
-            {/* Protected Routes */}
-            <Route
-              path="/book"
-              element={
-                <ProtectedRoute>
-                  <DynamicBookingPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <DashboardPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/dashboard/bookings"
-              element={
-                <ProtectedRoute>
-                  <BookingsPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/dashboard/profile"
-              element={
-                <ProtectedRoute>
-                  <ProfilePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/dashboard/settings"
-              element={
-                <ProtectedRoute>
-                  <SettingsPage />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-
-          {/* Tempo Routes */}
-          {import.meta.env.VITE_TEMPO === "true" && (
+          {tempoRoutes || (
             <Routes>
-              <Route path="/tempobook/*" element={null} />
+              {/* Public Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/pricing" element={<DynamicPricingPage />} />
+              <Route path="/dynamic-pricing" element={<DynamicPricingPage />} />
+
+              {/* Client Portal Routes */}
+              <Route path="/portal/:accessId" element={<ClientPortalPage />} />
+              <Route
+                path="/portal/:accessId/gallery"
+                element={<ClientGalleryPage />}
+              />
+              <Route
+                path="/portal/:accessId/payments"
+                element={<ClientPaymentsPage />}
+              />
+              <Route
+                path="/portal/:accessId/feedback"
+                element={<ClientFeedbackPage />}
+              />
+
+              {/* Auth Routes */}
+              <Route
+                path="/login"
+                element={
+                  <ProtectedRoute requireAuth={false}>
+                    <LoginPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <ProtectedRoute requireAuth={false}>
+                    <SignupPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Protected Routes */}
+              <Route
+                path="/book"
+                element={
+                  <ProtectedRoute>
+                    <DynamicBookingPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <UserDashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/bookings"
+                element={
+                  <ProtectedRoute>
+                    <BookingsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/settings"
+                element={
+                  <ProtectedRoute>
+                    <SettingsPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={<AdminLoginPage />} />
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <ProtectedRoute requireAdmin={true}>
+                    <AdminDashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Tempo Routes */}
+              {import.meta.env.VITE_TEMPO && <Route path="/tempobook/*" />}
             </Routes>
           )}
-
-          {/* Floating Book Now Button removed as requested */}
         </Suspense>
       </AuthProvider>
     </ThemeProvider>

@@ -91,13 +91,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     dispatch({ type: "LOGIN_START" });
     try {
       // Implement actual login API call here
+      // For demo purposes, check if it's an admin login
+      const isAdmin = credentials.email.includes("admin");
+
       const mockUser: User = {
         id: "1",
         email: credentials.email,
-        firstName: "John",
-        lastName: "Doe",
-        role: "user",
+        firstName: isAdmin ? "Admin" : "John",
+        lastName: isAdmin ? "User" : "Doe",
+        role: isAdmin ? "admin" : "user",
         createdAt: new Date().toISOString(),
+        phone: "+91 98765 43210",
       };
       localStorage.setItem("authToken", "mock-token");
       localStorage.setItem("userData", JSON.stringify(mockUser));

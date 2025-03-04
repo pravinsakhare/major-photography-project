@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import Navbar from "../navigation/Navbar";
 import ServiceCard from "./ServiceCard";
 import { Button } from "@/components/ui/button";
+import FadeInSection from "../sections/FadeInSection";
+import CtaSection from "../sections/CtaSection";
+import Footer from "../layout/Footer";
 
 const services = [
   {
@@ -125,73 +128,72 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900">
       <Navbar />
       <div className="pt-20">
-        <motion.div
-          className="container mx-auto px-4 py-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl font-playfair text-white mb-6">
-              Our Services
-            </h1>
-            <p className="text-white/70 max-w-2xl mx-auto text-lg">
-              Elevate your visual content with our professional photography and
-              cinematography services
-            </p>
-          </motion.div>
+        <div className="container mx-auto px-4 py-16">
+          <FadeInSection>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-playfair text-white mb-6">
+                Our Services
+              </h1>
+              <p className="text-white/70 max-w-2xl mx-auto text-lg">
+                Elevate your visual content with our professional photography
+                and cinematography services
+              </p>
+            </div>
+          </FadeInSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <ServiceCard key={service.title} {...service} index={index} />
+              <FadeInSection key={service.title} delay={index * 0.1}>
+                <ServiceCard {...service} index={index} />
+              </FadeInSection>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-16 text-center"
-          >
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 max-w-2xl mx-auto">
-              <p className="text-white/90 text-lg mb-4">
-                Trusted by 500+ Clients Worldwide
-              </p>
-              <div className="flex justify-center space-x-4 mb-6">
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🏆</span>
+          <FadeInSection delay={0.3}>
+            <div className="mt-16 text-center">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 max-w-2xl mx-auto">
+                <p className="text-white/90 text-lg mb-4">
+                  Trusted by 500+ Clients Worldwide
+                </p>
+                <div className="flex justify-center space-x-4 mb-6">
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🏆</span>
+                  </div>
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">⭐</span>
+                  </div>
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🌟</span>
+                  </div>
                 </div>
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">⭐</span>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <Button
+                    onClick={() => (window.location.href = "/pricing")}
+                    className="bg-[#D4AF37] hover:bg-[#B59020] text-white transition-all duration-300"
+                  >
+                    View Packages
+                  </Button>
+                  <Button
+                    onClick={() => (window.location.href = "/contact")}
+                    variant="outline"
+                    className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
+                  >
+                    Request a Quote
+                  </Button>
                 </div>
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🌟</span>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button
-                  onClick={() => (window.location.href = "/pricing")}
-                  className="bg-[#D4AF37] hover:bg-[#B59020] text-white transition-all duration-300"
-                >
-                  View Packages
-                </Button>
-                <Button
-                  onClick={() => (window.location.href = "/contact")}
-                  variant="outline"
-                  className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-                >
-                  Request a Quote
-                </Button>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </FadeInSection>
+        </div>
       </div>
+      <CtaSection
+        title="Ready to Elevate Your Visual Content?"
+        description="Work with our professional team to create stunning imagery for your brand or special occasion."
+        buttonText="Get in Touch"
+        buttonLink="/contact"
+        backgroundImage="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1600&q=80"
+      />
+      <Footer />
     </div>
   );
 };

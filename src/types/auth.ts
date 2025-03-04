@@ -5,6 +5,8 @@ export interface User {
   lastName: string;
   role: "user" | "admin";
   createdAt: string;
+  profileImage?: string;
+  phone?: string;
 }
 
 export interface AuthState {
