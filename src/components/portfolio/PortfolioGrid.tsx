@@ -8,10 +8,10 @@ export type Category =
   | "all"
   | "weddings"
   | "fashion"
-  | "corporate"
-  | "events"
-  | "drone"
-  | "films";
+  | "cultural"
+  | "festivals"
+  | "landmarks"
+  | "portrait";
 
 interface PortfolioItem {
   id: string;
@@ -28,208 +28,217 @@ const portfolioItems: PortfolioItem[] = [
   // Wedding Category
   {
     id: "1",
-    title: "Sunset Beach Wedding",
+    title: "Royal Indian Wedding",
     category: "weddings",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80",
-    description: "Romantic couple during a sunset beach ceremony",
+      "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=800&q=80",
+    description:
+      "Opulent Indian wedding ceremony with traditional rituals and decor",
     date: "2024-03-15",
   },
   {
     id: "2",
-    title: "Bride Preparation",
+    title: "Wedding Preparations",
     category: "weddings",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1546804784-896d0dca3805?w=800&q=80",
-    description: "Elegant bride getting ready for her special day",
+      "https://images.unsplash.com/photo-1583318432730-a19c89692612?w=800&q=80",
+    description: "Beautifully embroidered traditional Indian wedding attire",
     date: "2024-02-28",
   },
   {
     id: "3",
-    title: "Luxury Wedding Reception",
+    title: "Traditional Ceremony",
     category: "weddings",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
-    description: "Sophisticated wedding reception with exquisite decor",
+      "https://images.unsplash.com/photo-1517457210348-703079e57d4b?w=800&q=80",
+    description:
+      "Traditional Indian wedding with elaborate decorations and rituals",
     date: "2024-01-20",
   },
 
   // Fashion Category
   {
     id: "4",
-    title: "Urban Fashion Editorial",
+    title: "Silk Saree Artistry",
     category: "fashion",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
-    description: "Stylish model posing in an urban setting",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80",
+    description: "Intricately designed traditional silk saree with gold work",
     date: "2024-02-20",
   },
   {
     id: "5",
-    title: "Runway Collection",
+    title: "Traditional Pagdi",
     category: "fashion",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
-    description: "Vibrant fashion runway showcase",
+      "https://images.unsplash.com/photo-1491852807958-4326560208e9?w=800&q=80",
+    description: "Man wearing a traditional Rajasthani turban with pride",
     date: "2024-03-05",
   },
   {
     id: "6",
-    title: "Creative Editorial",
+    title: "Contemporary Fashion",
     category: "fashion",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
-    description: "Artistic fashion editorial with unique styling",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80",
+    description: "Elegant silk saree with intricate embroidery and designs",
     date: "2024-02-10",
   },
 
-  // Corporate Category
+  // Cultural Category
   {
     id: "7",
-    title: "Executive Meeting",
-    category: "corporate",
+    title: "Classical Dance Performance",
+    category: "cultural",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
-    description: "Professional business meeting in modern boardroom",
+      "https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=80",
+    description:
+      "Graceful dancer performing traditional Indian classical dance",
     date: "2024-01-10",
   },
   {
     id: "8",
-    title: "Entrepreneur Portrait",
-    category: "corporate",
+    title: "Kathakali Expression",
+    category: "cultural",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
-    description: "Entrepreneur working in a contemporary office space",
+      "https://images.unsplash.com/photo-1584545284372-f22510eb7c26?w=800&q=80",
+    description:
+      "Elaborate makeup and expressions of Kathakali dance form from Kerala",
     date: "2024-02-15",
   },
   {
     id: "9",
-    title: "Team Collaboration",
-    category: "corporate",
+    title: "Spice Market",
+    category: "cultural",
     type: "video",
     thumbnail:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+      "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&q=80",
     videoUrl: "https://example.com/video.mp4",
-    description: "Dynamic team collaboration in a creative coworking space",
+    description: "Colorful array of spices in a traditional Indian market",
     date: "2024-03-12",
   },
 
-  // Events Category
+  // Festivals Category
   {
     id: "10",
-    title: "Music Festival",
-    category: "events",
+    title: "Diwali Festival of Lights",
+    category: "festivals",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80",
-    description: "Lively music concert with an energetic crowd",
+      "https://images.unsplash.com/photo-1635168840837-56c7b8e0d3c0?w=800&q=80",
+    description:
+      "Beautifully arranged diyas illuminating the night during Diwali celebrations",
     date: "2024-03-10",
   },
   {
     id: "11",
-    title: "Birthday Celebration",
-    category: "events",
+    title: "Holi Celebrations",
+    category: "festivals",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
-    description: "Vibrant birthday celebration with elegant decorations",
+      "https://images.unsplash.com/photo-1551843073-4a9a5b6fcd5f?w=800&q=80",
+    description:
+      "Vibrant colors filling the air during the joyous Holi festival",
     date: "2024-01-25",
   },
   {
     id: "12",
-    title: "Business Conference",
-    category: "events",
+    title: "Festival Procession",
+    category: "festivals",
     type: "video",
     thumbnail:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+      "https://images.unsplash.com/photo-1592466575533-5dbf3a8a93c4?w=800&q=80",
     videoUrl: "https://example.com/conference.mp4",
-    description: "Professional business conference with keynote speakers",
+    description:
+      "Joyful celebration of the Holi festival with colorful powders",
     date: "2024-02-05",
   },
 
-  // Drone Category
+  // Landmarks Category
   {
     id: "13",
-    title: "City Skyline Aerial",
-    category: "drone",
+    title: "Majestic Taj Mahal",
+    category: "landmarks",
     type: "video",
     thumbnail:
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80",
+      "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
     videoUrl: "https://example.com/drone.mp4",
-    description: "Breathtaking aerial view of a metropolitan skyline",
+    description: "Iconic Taj Mahal reflecting in water during perfect light",
     date: "2024-03-01",
   },
   {
     id: "14",
-    title: "Mountain Landscape",
-    category: "drone",
+    title: "Amber Fort",
+    category: "landmarks",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-    description: "Scenic landscape with mountains and winding rivers",
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
+    description: "Stunning architecture of the historic Amber Fort in Jaipur",
     date: "2024-02-18",
   },
   {
     id: "15",
-    title: "Beach Wedding Aerial",
-    category: "drone",
+    title: "Golden Temple",
+    category: "landmarks",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=800&q=80",
-    description: "Top-down view of an elegant beach wedding setup",
+      "https://images.unsplash.com/photo-1518792528501-352f829886dc?w=800&q=80",
+    description: "Serene Golden Temple in Amritsar glowing at dusk",
     date: "2024-03-20",
   },
 
-  // Films Category
+  // Portrait Category
   {
     id: "16",
-    title: "Cinematic Drama Scene",
-    category: "films",
+    title: "Traditional Portrait",
+    category: "portrait",
     type: "video",
     thumbnail:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80",
+      "https://images.unsplash.com/photo-1583318432730-a19c89692612?w=800&q=80",
     videoUrl: "https://example.com/film.mp4",
-    description: "Dramatic scene from an award-winning short film",
+    description: "Classical Bharatanatyam dancer in traditional costume",
     date: "2024-02-15",
   },
   {
     id: "17",
-    title: "Behind The Scenes",
-    category: "films",
+    title: "Cultural Portrait",
+    category: "portrait",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1533928298208-27ff66555d8d?w=800&q=80",
-    description: "Director and camera crew during a film production",
+      "https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=80",
+    description:
+      "Elegant Kathak dancer showcasing intricate footwork and expressions",
     date: "2024-01-30",
   },
   {
     id: "18",
-    title: "Vintage Film Portrait",
-    category: "films",
+    title: "Modern Indian Portrait",
+    category: "portrait",
     type: "image",
     thumbnail:
-      "https://images.unsplash.com/photo-1517940310602-26535839fe84?w=800&q=80",
-    description: "Artistic portrait with vintage film aesthetics",
+      "https://images.unsplash.com/photo-1594819047050-99defca82545?w=800&q=80",
+    description:
+      "Modern portrait showcasing traditional Indian elements with contemporary style",
     date: "2024-03-08",
   },
 ];
 
 const categories: { value: Category; label: string; icon: string }[] = [
   { value: "all", label: "All Work", icon: "🎨" },
-  { value: "weddings", label: "Weddings", icon: "📸" },
+  { value: "weddings", label: "Weddings", icon: "💍" },
   { value: "fashion", label: "Fashion", icon: "👗" },
-  { value: "corporate", label: "Corporate", icon: "👔" },
-  { value: "events", label: "Events", icon: "🎉" },
-  { value: "drone", label: "Drone Shots", icon: "🚁" },
-  { value: "films", label: "Short Films", icon: "🎬" },
+  { value: "cultural", label: "Cultural", icon: "🎭" },
+  { value: "festivals", label: "Festivals", icon: "🪔" },
+  { value: "landmarks", label: "Landmarks", icon: "🏛️" },
+  { value: "portrait", label: "Portraits", icon: "📸" },
 ];
 
 const PortfolioGrid = () => {
